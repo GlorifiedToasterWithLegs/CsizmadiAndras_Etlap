@@ -1,0 +1,34 @@
+﻿<Window x:Class="Etlap.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Etlap"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+		<DockPanel>
+			<StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+				<Button Content="Add" Width="150" Click="Add_Click"/>
+				<Button Content="Delete" Width="150" Click="Delete_Click"/>
+			</StackPanel>
+			<StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+				<Expander Header="Modify">
+					<StackPanel Orientation="Horizontal">
+						<TextBox x:Name="increaseAmount" Width="150"/>
+						<ComboBox x:Name="increaseType">
+							<ComboBoxItem Content="Ft"/>
+							<ComboBoxItem Content="%"/>
+						</ComboBox>
+						<Button Content="Modify" Click="Modify_Click"/>
+					</StackPanel>
+				</Expander>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<DataGrid x:Name="tableGrid" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="tableGrid_SelectionChanged">
+				</DataGrid>
+				<TextBlock x:Name="descMain" TextWrapping="Wrap" Height="auto" Width="auto"/>
+			</StackPanel>
+		</DockPanel>
+	</Grid>
+</Window>
